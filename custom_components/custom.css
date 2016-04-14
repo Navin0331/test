@@ -37,3 +37,7 @@ h1{
      margin-right: 10% ;
       background-color: #fff;
 }
+
+paper-button{
+margin:10px;
+}

@@ -33,7 +33,8 @@
     "paper-card": "PolymerElements/paper-card#^1.1.1",
     "paper-radio-button": "PolymerElements/paper-radio-button#^1.1.1",
     "iron-label": "PolymerElements/iron-label#^1.0.2",
-    "paper-material": "PolymerElements/paper-material#^1.0.6"
+    "paper-material": "PolymerElements/paper-material#^1.0.6",
+    "fast-json-patch": "^0.5.7"
   },
   "resolutions": {
     "polymer": "^1.2.1"

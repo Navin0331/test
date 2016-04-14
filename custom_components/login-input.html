@@ -1,71 +1,87 @@
+<link rel="import" href="../bower_components/paper-menu/paper-menu.html">
+<link rel="import" href="../bower_components/paper-item/paper-item.html">
 <link rel="import" href="../bower_components/iron-icons/iron-icons.html">
 <link rel="import" href="../bower_components/paper-drawer-panel/paper-drawer-panel.html">
 <link rel="import" href="../bower_components/paper-header-panel/paper-header-panel.html">
 <link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="../bower_components/paper-material/paper-material.html">
 <link rel="import" href="../bower_components/paper-toolbar/paper-toolbar.html">
-<link rel="import" href="../bower_components/paper-menu/paper-menu.html">
+<link rel="import" href="../bower_components/paper-menu/paper-submenu.html">
+<link rel="import" href="../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
 
 
-<!--
-
-Left Nav + Cards
-
- -->
 <dom-module id="login-input">
 
-  <link rel="import" type="css" href="x-app.css">
+    <link rel="import" type="css" href="../custom_components/custom.css">
 
-  <template>
+    <template>
+        <paper-header-panel style="margin:-8px;" class="main" main mode="tall">
+            <paper-toolbar>
 
-    <paper-drawer-panel id="drawerPanel" responsive-width="1280px">
+                <div>Login</div>
+            </paper-toolbar>
+            <div class="content">
+                <paper-material>
+                    <div class="container">
+                        <paper-input label="Username" type="text" value="{{userName}}"></paper-input>
+                        <paper-input label="Password" type="password" value="{{passWord}}"></paper-input>
+                        <paper-button on-tap="login">Login</paper-button>
+                        <paper-button on-tap="">Reset</paper-button>
+                    </div>
 
-      <div class="nav" drawer>
-          
-                <paper-item raised>1</paper-item>
-                <paper-item>2</paper-item>
-                <paper-item>3</paper-item>
-                <paper-item>4</paper-item>
-            
-        <!-- Nav Content -->
-      </div>
 
-      <paper-header-panel class="main" main mode="waterfall">
+                </paper-material>
 
-        <!-- Main Toolbar -->
-        <paper-toolbar>
-          <paper-icon-button icon="menu" paper-drawer-toggle></paper-icon-button>
-            <div>Login</div>
-            
-        </paper-toolbar>
-          
-          
+            </div>
 
-        <!-- Main Content -->
-        <div class="content">
-          <paper-material></paper-material>
-          <paper-material></paper-material>
-          <paper-material></paper-material>
-          <paper-material></paper-material>
-          <paper-material></paper-material>
-          <paper-material></paper-material>
-          <paper-material></paper-material>
-        </div>
+        </paper-header-panel>
 
-      </paper-header-panel>
 
-    </paper-drawer-panel>
+    </template>
 
-  </template>
+    <script>
+        Polymer({
+            if(sessionStorage.getItem("token")){
+            // when have token
+        }else{
+                // when no token
+                }
 
-  <script>
-
-    Polymer({
-
-      is: 'login-input'
-
-    });
-
-  </script>
+            is: 'login-input',
+            properties: {
+                userName: {
+                    type: String,
+                    notify: true
+                },
+                passWord: {
+                    type: String,
+                    notify: true
+                }
+            },
+            login: function (e) {
+                var ajax = document.querySelector("#ajax")
+                ajax.method = "POST"
+                ajax.contentType = "application/x-www-form-urlencoded"
+                ajax.body = {
+                    "username": this.userName,
+                    "password": this.passWord
+                }
+                ajax.url = "http://localhost:8080/api/auth/login"
+                var req = ajax.generateRequest()
+                req.completes.then(function (v) {
+                    console.log(v.response)
+                    sessionStorage.setItem('token', v.response.token);
+                    window.location.href = "user/admin"
+                   
+                }, function (e) {
+                    console.log(e)
+                })
+            },
+            reset: function(a){
+                
+            }
+        });
+    </script>
 
 </dom-module>

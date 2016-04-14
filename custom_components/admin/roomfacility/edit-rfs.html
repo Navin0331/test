@@ -1,25 +1,42 @@
-<link rel="import" href="../../../../bower_components/paper-menu/paper-menu.html">
-<link rel="import" href="../../../../bower_components/paper-item/paper-item.html">
-<link rel="import" href="../../../../bower_components/iron-icons/iron-icons.html">
-<link rel="import" href="../../../../bower_components/paper-drawer-panel/paper-drawer-panel.html">
-<link rel="import" href="../../../../bower_components/paper-header-panel/paper-header-panel.html">
-<link rel="import" href="../../../../bower_components/paper-icon-button/paper-icon-button.html">
-<link rel="import" href="../../../../bower_components/paper-material/paper-material.html">
-<link rel="import" href="../../../../bower_components/paper-toolbar/paper-toolbar.html">
-
+<link rel="import" href="../../../bower_components/paper-menu/paper-menu.html">
+<link rel="import" href="../../../bower_components/paper-item/paper-item.html">
+<link rel="import" href="../../../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../../../bower_components/paper-drawer-panel/paper-drawer-panel.html">
+<link rel="import" href="../../../bower_components/paper-header-panel/paper-header-panel.html">
+<link rel="import" href="../../../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../../../bower_components/paper-material/paper-material.html">
+<link rel="import" href="../../../bower_components/paper-toolbar/paper-toolbar.html">
+<link rel="import" href="../../../bower_components/paper-menu/paper-submenu.html">
+<link rel="import" href="../../../bower_components/paper-input/paper-input.html">
 
 <dom-module id="edit-rfs">
-  <link rel="import" type="css" href="../../../../custom_components/custom.css">
+  <link rel="import" type="css" href="../../../custom_components/custom.css">
   <template>
     <paper-drawer-panel id="drawerPanel" responsive-width="1280px">
                         
       <div class="nav" drawer>
           <paper-toolbar><div>Menu</div></paper-toolbar>
           <paper-menu>
-                <paper-item>haha</paper-item>
-                <paper-item>haha</paper-item>
-                <paper-item>haha</paper-item>
-                <paper-item>haha</paper-item>
+                <paper-submenu><!-- actual item 1 of #outer -->
+                    <paper-item class="menu-trigger">
+                        Rooms, Facilities and Services
+                    </paper-item>
+                    <paper-menu id="inner" class="menu-content">
+                          <paper-item onclick="window.location.href='../../user/admin/roomfacilities/addRFS.html'">Add new</paper-item>
+                          <paper-item onclick="window.location.href='../../user/admin/roomfacilities/modifyRFS.html'">Edit</paper-item>
+                          <paper-item onclick="window.location.href='../../user/admin/roomfacilities/RFS.html'">Display</paper-item>
+                    </paper-menu>
+                </paper-submenu>
+                <paper-submenu><!-- actual item 1 of #outer -->
+                    <paper-item class="menu-trigger">
+                        Reservation
+                    </paper-item>
+                    <paper-menu id="inner" class="menu-content">
+                          <paper-item onclick="window.location.href='../../user/admin/reservation/createnewreservation.html'">Add reservation</paper-item>
+                          <paper-item onclick="window.location.href='../../user/admin/reservation/editreservation.html'">Edit reservation</paper-item>
+                          <paper-item onclick="window.location.href='../../user/admin/reservation/displayreservation.html'">Display</paper-item>
+                    </paper-menu>
+                </paper-submenu>
           </paper-menu>
       </div>
 
@@ -31,14 +48,17 @@
         </paper-toolbar>
           <h1>Edit Room, Facilities and Serices</h1>
         <div class="content">
-            <h1></h1>
-          <paper-material></paper-material>
-          <paper-material></paper-material>
-          <paper-material></paper-material>
-          <paper-material></paper-material>
-          <paper-material></paper-material>
-          <paper-material></paper-material>
-          <paper-material></paper-material>
+          <paper-material>
+              <div class="container">
+              <paper-input label="Name:"></paper-input>
+                  <paper-input label="Type:"></paper-input>
+                  <paper-input label="Price:"></paper-input>
+                  <paper-input label="Floor:"></paper-input>
+                  <paper-input label="Description:"></paper-input>
+                  <paper-input label="hahahaha"></paper-input>
+              </div>
+            </paper-material>
+         
         </div>
 
       </paper-header-panel>

@@ -6,9 +6,7 @@
 <link rel="import" href="../../../bower_components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="../../../bower_components/paper-material/paper-material.html">
 <link rel="import" href="../../../bower_components/paper-toolbar/paper-toolbar.html">
-<link rel="import" href="../../../bower_components/paper-input/paper-input.html">
-<link rel="import" href="../../../bower_components/paper-radio-button/paper-radio-button.html">
-<link rel="import" href="../../../bower_components/paper-radio-group/paper-radio-group.html">
+<link rel="import" href="../../../bower_components/paper-menu/paper-submenu.html">
 
 
 <dom-module id="new-reservation">
@@ -19,10 +17,36 @@
       <div class="nav" drawer>
           <paper-toolbar><div>Menu</div></paper-toolbar>
           <paper-menu>
-                <paper-item>haha</paper-item>
-                <paper-item>haha</paper-item>
-                <paper-item>haha</paper-item>
-                <paper-item>haha</paper-item>
+                <paper-submenu><!-- actual item 1 of #outer -->
+                    <paper-item class="menu-trigger">
+                        Submenu 1
+                    </paper-item>
+                    <paper-menu id="inner" class="menu-content">
+                          <paper-item>menu1</paper-item>
+                          <paper-item>menu2</paper-item>
+                          <paper-item>menu3</paper-item>
+                    </paper-menu>
+                </paper-submenu>
+                <paper-submenu><!-- actual item 1 of #outer -->
+                    <paper-item class="menu-trigger">
+                        Submenu 2
+                    </paper-item>
+                    <paper-menu id="inner" class="menu-content">
+                          <paper-item>item 0 of #inner</paper-item>
+                          <paper-item>item 1 of #inner</paper-item>
+                          <paper-item>item 2 of #inner</paper-item>
+                    </paper-menu>
+                </paper-submenu>
+                <paper-submenu><!-- actual item 1 of #outer -->
+                <paper-item class="menu-trigger">
+                  Submenu 3
+                </paper-item>
+                    <paper-menu id="inner" class="menu-content">
+                        <paper-item>item 0 of #inner</paper-item>
+                        <paper-item>item 1 of #inner</paper-item>
+                        <paper-item>item 2 of #inner</paper-item>
+                    </paper-menu>   
+                  </paper-submenu>
           </paper-menu>
       </div>
 
@@ -30,27 +54,20 @@
 
         <paper-toolbar>
           <paper-icon-button icon="menu" paper-drawer-toggle></paper-icon-button>
-            <div>Project Katra</div>
+            <span class="title">Project Katra</span>
+            <paper-icon-button icon="refresh"></paper-icon-button>
+            <paper-icon-button icon="add">+</paper-icon-button>
         </paper-toolbar>
           <h1>New Reservation</h1>
         <div class="content">
           <paper-material>
               <div class="container">
-                  <paper-input label="First Name"></paper-input>
-                  <paper-input label="Last Name"></paper-input>
-                  <paper-input label="Age"></paper-input>
-                  <br>Gender:
-                  <paper-radio-group>
-                      <paper-radio-button name="male">Male</paper-radio-button>
-                      <paper-radio-button name="female">Female</paper-radio-button>
-                  </paper-radio-group>
-                  <paper-input label="email" id="inputWithButton">
-                      <iron-icon icon="mail" prefix></iron-icon>
-                  </paper-input>
-                  <paper-input label="Address"></paper-input>
-                  <paper-input label="Postcode"></paper-input>
-                  <paper-input label="Country"></paper-input>
-                  <paper-input label="Phone Number"></paper-input>
+              <paper-input label="hahahaha"></paper-input>
+                  <paper-input label="hahahaha"></paper-input>
+                  <paper-input label="hahahaha"></paper-input>
+                  <paper-input label="hahahaha"></paper-input>
+                  <paper-input label="hahahaha"></paper-input>
+                  <paper-input label="hahahaha"></paper-input>
               </div>
             </paper-material>
 
