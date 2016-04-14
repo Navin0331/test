@@ -7,37 +7,76 @@
 <link rel="import" href="../../../bower_components/paper-material/paper-material.html">
 <link rel="import" href="../../../bower_components/paper-toolbar/paper-toolbar.html">
 <link rel="import" href="../../../bower_components/paper-menu/paper-submenu.html">
+<link rel="import" href="../../../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../../../bower_components/paper-button/paper-button.html">
 
 <dom-module id="edit-reservation">
   <link rel="import" type="css" href="../../../custom_components/custom.css">
+    <style is="custom-style">
+        paper-button.custom {
+            --paper-button-ink-color: var(--paper-pink-a200);
+            /* These could also be individually defined for each of the
+               specific css classes, but we'll just do it once as an example */
+            --paper-button-flat-keyboard-focus: {
+              background-color: var(--paper-pink-a200);
+              color: white !important;
+            };
+            --paper-button-raised-keyboard-focus: {
+              background-color: var(--paper-pink-a200) !important;
+              color: white !important;
+            };
+        }
+        paper-button.custom:hover {
+              background-color: var(--paper-indigo-100);
+        }
+        paper-button.indigo {
+              background-color: #42A5F5;
+              color: white;
+              --paper-button-raised-keyboard-focus: {
+                background-color: var(--paper-pink-a200) !important;
+                color: white !important;
+              };
+        }
+    </style>
+    
   <template>
     <paper-drawer-panel id="drawerPanel" responsive-width="1280px">
                         
       <div class="nav" drawer>
-          <paper-toolbar><div>Menu</div></paper-toolbar>
-          <paper-menu>
+            <paper-toolbar><div>Menu</div></paper-toolbar>
+            <paper-menu>
                 <paper-submenu><!-- actual item 1 of #outer -->
                     <paper-item class="menu-trigger">
-                        Rooms, Facilities and Services
+                        Reservations
                     </paper-item>
                     <paper-menu id="inner" class="menu-content">
-                          <paper-item onclick="window.location.href='../../user/admin/roomfacilities/addRFS.html'">Add new</paper-item>
-                          <paper-item onclick="window.location.href='../../user/admin/roomfacilities/modifyRFS.html'">Edit</paper-item>
-                          <paper-item onclick="window.location.href='../../user/admin/roomfacilities/RFS.html'">Display</paper-item>
+                        <paper-item onclick="window.location.href='../../../user/admin/reservation/createnewreservation.html'">Add new</paper-item>
+                        <paper-item onclick="window.location.href='../../../user/admin/reservation/editreservation.html'">Edit</paper-item>
+                        <paper-item onclick="window.location.href='../../../user/admin/reservation/displayreservation.html'">Display</paper-item>
                     </paper-menu>
                 </paper-submenu>
                 <paper-submenu><!-- actual item 1 of #outer -->
                     <paper-item class="menu-trigger">
-                        Reservation
+                        Rooms & Facilities Management
                     </paper-item>
                     <paper-menu id="inner" class="menu-content">
-                          <paper-item onclick="window.location.href='../../user/admin/reservation/createnewreservation.html'">Add reservation</paper-item>
-                          <paper-item onclick="window.location.href='../../user/admin/reservation/editreservation.html'">Edit reservation</paper-item>
-                          <paper-item onclick="window.location.href='../../user/admin/reservation/displayreservation.html'">Display</paper-item>
+                        <paper-item onclick="window.location.href='../../../user/admin/roomfacilities/addRFS.html'">Add room/facility</paper-item>
+                        <paper-item onclick="window.location.href='../../../user/admin/roomfacilities/modifyRFS.html'">Edit room/facility</paper-item>
+                        <paper-item onclick="window.location.href='../../../user/admin/roomfacilities/RFS.html'">Display</paper-item>
                     </paper-menu>
                 </paper-submenu>
-          </paper-menu>
-      </div>
+                <paper-submenu><!-- actual item 1 of #outer -->
+                <paper-item class="menu-trigger">
+                  Front Desk Management
+                </paper-item>
+                    <paper-menu id="inner" class="menu-content">
+                        <paper-item>Manage Check-in</paper-item>
+                        <paper-item>Manage Check-out</paper-item>
+                        <paper-item>Payment</paper-item>
+                    </paper-menu>   
+                </paper-submenu>
+            </paper-menu>
+        </div>
 
       <paper-header-panel class="main" main mode="waterfall">
 
@@ -49,15 +88,19 @@
         </paper-toolbar>
           <h1>Edit Reservation</h1>
         <div class="content">
-          <paper-material>
-              <div class="container">
-                    <paper-input label="Name:"></paper-input>
-                  <paper-input label="NRIC:"></paper-input>
-                  <paper-input label="Gender:"></paper-input>
-                  <paper-input label="Email:"></paper-input>
-                  <paper-input label="Contact:"></paper-input>
-                  <paper-input label=""></paper-input>
-              </div>
+            <paper-material>
+                <div class="container">
+                    <paper-input label="Reservation ID:"></paper-input>
+                    <paper-button raised class="custom indigo">Search</paper-button>
+                    <paper-input label="Reservation ID:"></paper-input>
+                    <paper-input label="Customer ID:"></paper-input>
+                    <paper-input label="Check-in:"></paper-input>
+                    <paper-input label="Check-out:"></paper-input>
+                    <paper-input label="No. of rooms:"></paper-input>
+                    <paper-input label="Room type:"></paper-input>
+                    <paper-input label="Total price:"></paper-input>
+                    <paper-button raised class="custom indigo">Update</paper-button>
+                </div>
             </paper-material>
 
         </div>

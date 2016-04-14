@@ -7,73 +7,107 @@
 <link rel="import" href="../../../bower_components/paper-material/paper-material.html">
 <link rel="import" href="../../../bower_components/paper-toolbar/paper-toolbar.html">
 <link rel="import" href="../../../bower_components/paper-menu/paper-submenu.html">
+<link rel="import" href="../../../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../../../bower_components/paper-button/paper-button.html">
 
 
 <dom-module id="new-reservation">
-  <link rel="import" type="css" href="../../../custom_components/custom.css">
-  <template>
-    <paper-drawer-panel id="drawerPanel" responsive-width="1280px">
+    <link rel="import" type="css" href="../../../custom_components/custom.css">
+    
+    <style is="custom-style">
+        paper-button.custom {
+            --paper-button-ink-color: var(--paper-pink-a200);
+            /* These could also be individually defined for each of the
+               specific css classes, but we'll just do it once as an example */
+            --paper-button-flat-keyboard-focus: {
+              background-color: var(--paper-pink-a200);
+              color: white !important;
+            };
+            --paper-button-raised-keyboard-focus: {
+              background-color: var(--paper-pink-a200) !important;
+              color: white !important;
+            };
+        }
+        paper-button.custom:hover {
+              background-color: var(--paper-indigo-100);
+        }
+        paper-button.indigo {
+              background-color: #42A5F5;
+              color: white;
+              --paper-button-raised-keyboard-focus: {
+                background-color: var(--paper-pink-a200) !important;
+                color: white !important;
+              };
+        }
+    </style>
+    
+    <template>
+        <paper-drawer-panel id="drawerPanel" responsive-width="1280px">
                         
-      <div class="nav" drawer>
-          <paper-toolbar><div>Menu</div></paper-toolbar>
-          <paper-menu>
+        <div class="nav" drawer>
+            <paper-toolbar><div>Menu</div></paper-toolbar>
+            <paper-menu>
                 <paper-submenu><!-- actual item 1 of #outer -->
                     <paper-item class="menu-trigger">
-                        Submenu 1
+                        Reservations
                     </paper-item>
                     <paper-menu id="inner" class="menu-content">
-                          <paper-item>menu1</paper-item>
-                          <paper-item>menu2</paper-item>
-                          <paper-item>menu3</paper-item>
+                        <paper-item onclick="window.location.href='../../../user/admin/reservation/createnewreservation.html'">Add new</paper-item>
+                        <paper-item onclick="window.location.href='../../../user/admin/reservation/editreservation.html'">Edit</paper-item>
+                        <paper-item onclick="window.location.href='../../../user/admin/reservation/displayreservation.html'">Display</paper-item>
                     </paper-menu>
                 </paper-submenu>
                 <paper-submenu><!-- actual item 1 of #outer -->
                     <paper-item class="menu-trigger">
-                        Submenu 2
+                        Rooms & Facilities Management
                     </paper-item>
                     <paper-menu id="inner" class="menu-content">
-                          <paper-item>item 0 of #inner</paper-item>
-                          <paper-item>item 1 of #inner</paper-item>
-                          <paper-item>item 2 of #inner</paper-item>
+                        <paper-item onclick="window.location.href='../../../user/admin/roomfacilities/addRFS.html'">Add room/facility</paper-item>
+                        <paper-item onclick="window.location.href='../../../user/admin/roomfacilities/modifyRFS.html'">Edit room/facility</paper-item>
+                        <paper-item onclick="window.location.href='../../../user/admin/roomfacilities/RFS.html'">Display</paper-item>
                     </paper-menu>
                 </paper-submenu>
                 <paper-submenu><!-- actual item 1 of #outer -->
                 <paper-item class="menu-trigger">
-                  Submenu 3
+                  Front Desk Management
                 </paper-item>
                     <paper-menu id="inner" class="menu-content">
-                        <paper-item>item 0 of #inner</paper-item>
-                        <paper-item>item 1 of #inner</paper-item>
-                        <paper-item>item 2 of #inner</paper-item>
+                        <paper-item>Manage Check-in</paper-item>
+                        <paper-item>Manage Check-out</paper-item>
+                        <paper-item>Payment</paper-item>
                     </paper-menu>   
-                  </paper-submenu>
-          </paper-menu>
-      </div>
-
-      <paper-header-panel class="main" main mode="waterfall">
+                </paper-submenu>
+            </paper-menu>
+        </div>
+            
+            <paper-header-panel class="main" main mode="waterfall">
 
         <paper-toolbar>
-          <paper-icon-button icon="menu" paper-drawer-toggle></paper-icon-button>
+            <paper-icon-button icon="menu" paper-drawer-toggle></paper-icon-button>
             <span class="title">Project Katra</span>
             <paper-icon-button icon="refresh"></paper-icon-button>
             <paper-icon-button icon="add">+</paper-icon-button>
         </paper-toolbar>
-          <h1>New Reservation</h1>
+            <h1>New Reservation</h1>
         <div class="content">
           <paper-material>
               <div class="container">
-              <paper-input label="hahahaha"></paper-input>
-                  <paper-input label="hahahaha"></paper-input>
-                  <paper-input label="hahahaha"></paper-input>
-                  <paper-input label="hahahaha"></paper-input>
-                  <paper-input label="hahahaha"></paper-input>
-                  <paper-input label="hahahaha"></paper-input>
+                  <h2>Customer Info</h2>
+                  <paper-input label="First Name"></paper-input>
+                  <paper-input label="Last Name"></paper-input>
+                  <paper-input label="Age"></paper-input>
+                  <paper-input label="Address"></paper-input>
+                  <paper-input label="Postcode"></paper-input>
+                  <paper-input label="State"></paper-input>
+                  <paper-input label="Country"></paper-input>
+                  <paper-input label="Phone Number"></paper-input>
+                  <paper-input label="Email"></paper-input>
+                  <paper-button raised class="custom indigo">Proceed</paper-button>
               </div>
-            </paper-material>
-
+          </paper-material>
         </div>
 
-      </paper-header-panel>
+            </paper-header-panel>
 
     </paper-drawer-panel>
 

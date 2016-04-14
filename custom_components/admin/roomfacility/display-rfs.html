@@ -15,30 +15,40 @@
     <paper-drawer-panel id="drawerPanel" responsive-width="1280px">
                         
       <div class="nav" drawer>
-          <paper-toolbar><div>Menu</div></paper-toolbar>
-          <paper-menu>
+            <paper-toolbar><div>Menu</div></paper-toolbar>
+            <paper-menu>
                 <paper-submenu><!-- actual item 1 of #outer -->
                     <paper-item class="menu-trigger">
-                        Rooms, Facilities and Services
+                        Reservations
                     </paper-item>
                     <paper-menu id="inner" class="menu-content">
-                          <paper-item onclick="window.location.href='../../user/admin/roomfacilities/addRFS.html'">Add new</paper-item>
-                          <paper-item onclick="window.location.href='../../user/admin/roomfacilities/modifyRFS.html'">Edit</paper-item>
-                          <paper-item onclick="window.location.href='../../user/admin/roomfacilities/RFS.html'">Display</paper-item>
+                        <paper-item onclick="window.location.href='../../../user/admin/reservation/createnewreservation.html'">Add new</paper-item>
+                        <paper-item onclick="window.location.href='../../../user/admin/reservation/editreservation.html'">Edit</paper-item>
+                        <paper-item onclick="window.location.href='../../../user/admin/reservation/displayreservation.html'">Display</paper-item>
                     </paper-menu>
                 </paper-submenu>
                 <paper-submenu><!-- actual item 1 of #outer -->
                     <paper-item class="menu-trigger">
-                        Reservation
+                        Rooms & Facilities Management
                     </paper-item>
                     <paper-menu id="inner" class="menu-content">
-                          <paper-item onclick="window.location.href='../../user/admin/reservation/createnewreservation.html'">Add reservation</paper-item>
-                          <paper-item onclick="window.location.href='../../user/admin/reservation/editreservation.html'">Edit reservation</paper-item>
-                          <paper-item onclick="window.location.href='../../user/admin/reservation/displayreservation.html'">Display</paper-item>
+                        <paper-item onclick="window.location.href='../../../user/admin/roomfacilities/addRFS.html'">Add room/facility</paper-item>
+                        <paper-item onclick="window.location.href='../../../user/admin/roomfacilities/modifyRFS.html'">Edit room/facility</paper-item>
+                        <paper-item onclick="window.location.href='../../../user/admin/roomfacilities/RFS.html'">Display</paper-item>
                     </paper-menu>
                 </paper-submenu>
-          </paper-menu>
-      </div>
+                <paper-submenu><!-- actual item 1 of #outer -->
+                <paper-item class="menu-trigger">
+                  Front Desk Management
+                </paper-item>
+                    <paper-menu id="inner" class="menu-content">
+                        <paper-item>Manage Check-in</paper-item>
+                        <paper-item>Manage Check-out</paper-item>
+                        <paper-item>Payment</paper-item>
+                    </paper-menu>   
+                </paper-submenu>
+            </paper-menu>
+        </div>
 
       <paper-header-panel class="main" main mode="waterfall">
 
